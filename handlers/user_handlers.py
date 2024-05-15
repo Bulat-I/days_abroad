@@ -113,48 +113,49 @@ async def count_days_callback(callback: types.CallbackQuery, state: FSMContext, 
     days_abroad = await calculate_number_of_days(session=session, userid=callback.from_user.id)
     total_days = await calculate_remaining_days(session=session, userid=callback.from_user.id)
     
+    #This is totally weird
     if days_abroad != -1 and total_days != -1:
         if total_days == 0:
             await callback.message.answer((i18n.get("Number of days abroad: 0. Did you forget to add trips?")))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["daysperyearlimit"] == 0) and (total_days["dayspertwoyearslimit"] == 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}. Did you forget to set limits in settings?").format(daysabroad=days_abroad)))
+            await callback.message.answer(i18n.get('Total number of days abroad: {daysabroad}. Did you forget to set limits in settings?', daysabroad=days_abroad))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_one_year"] > 0) and (total_days["daysperyearlimit"] > 0) and (total_days["dayspertwoyearslimit"] == 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("The number of remaining days abroad during the year is {remaining_days} out of {days_limit}").format(remaining_days=total_days["remaining_days_one_year"], days_limit=total_days["daysperyearlimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("The number of remaining days abroad during the year is {remaining_days} out of {days_limit}", remaining_days=total_days["remaining_days_one_year"], days_limit=total_days["daysperyearlimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_one_year"] < 0) and (total_days["daysperyearlimit"] > 0) and (total_days["dayspertwoyearslimit"] == 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit").format(remaining_days=abs(total_days["remaining_days_one_year"]), days_limit=total_days["daysperyearlimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit", remaining_days=abs(total_days["remaining_days_one_year"]), days_limit=total_days["daysperyearlimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif(total_days["remaining_days_two_years"] > 0) and (total_days["dayspertwoyearslimit"] > 0) and (total_days["daysperyearlimit"] == 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}").format(remaining_days=total_days["remaining_days_two_years"], days_limit=total_days["dayspertwoyearslimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}", remaining_days=total_days["remaining_days_two_years"], days_limit=total_days["dayspertwoyearslimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_two_years"] < 0) and (total_days["dayspertwoyearslimit"] > 0) and (total_days["daysperyearlimit"] == 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit").format(remaining_days=abs(total_days["remaining_days_two_years"]), days_limit=total_days["dayspertwoyearslimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit", remaining_days=abs(total_days["remaining_days_two_years"]), days_limit=total_days["dayspertwoyearslimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_one_year"] > 0) and (total_days["daysperyearlimit"] > 0) and (total_days["remaining_days_two_years"] > 0) and (total_days["dayspertwoyearslimit"] > 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("The number of remaining days abroad during the year is {remaining_days} out of {days_limit}").format(remaining_days=total_days["remaining_days_one_year"], days_limit=total_days["daysperyearlimit"])))
-            await callback.message.answer((i18n.get("The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}").format(remaining_days=total_days["remaining_days_two_years"], days_limit=total_days["dayspertwoyearslimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("The number of remaining days abroad during the year is {remaining_days} out of {days_limit}", remaining_days=total_days["remaining_days_one_year"], days_limit=total_days["daysperyearlimit"])))
+            await callback.message.answer((i18n.get("The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}", remaining_days=total_days["remaining_days_two_years"], days_limit=total_days["dayspertwoyearslimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_one_year"] < 0) and (total_days["daysperyearlimit"] > 0) and (total_days["remaining_days_two_years"] > 0) and (total_days["dayspertwoyearslimit"] > 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit").format(remaining_days=abs(total_days["remaining_days_one_year"]), days_limit=total_days["daysperyearlimit"])))
-            await callback.message.answer((i18n.get("The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}").format(remaining_days=total_days["remaining_days_two_years"], days_limit=total_days["dayspertwoyearslimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit", remaining_days=abs(total_days["remaining_days_one_year"]), days_limit=total_days["daysperyearlimit"])))
+            await callback.message.answer((i18n.get("The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}", remaining_days=total_days["remaining_days_two_years"], days_limit=total_days["dayspertwoyearslimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_one_year"] > 0) and (total_days["daysperyearlimit"] > 0) and (total_days["remaining_days_two_years"] < 0) and (total_days["dayspertwoyearslimit"] > 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("The number of remaining days abroad during the year is {remaining_days} out of {days_limit}").format(remaining_days=total_days["remaining_days_one_year"], days_limit=total_days["daysperyearlimit"])))
-            await callback.message.answer((i18n.get("Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit").format(remaining_days=abs(total_days["remaining_days_two_years"]), days_limit=total_days["dayspertwoyearslimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("The number of remaining days abroad during the year is {remaining_days} out of {days_limit}", remaining_days=total_days["remaining_days_one_year"], days_limit=total_days["daysperyearlimit"])))
+            await callback.message.answer((i18n.get("Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit", remaining_days=abs(total_days["remaining_days_two_years"]), days_limit=total_days["dayspertwoyearslimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["remaining_days_one_year"] < 0) and (total_days["daysperyearlimit"] > 0) and (total_days["remaining_days_two_years"] < 0) and (total_days["dayspertwoyearslimit"] > 0):
-            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}").format(daysabroad=days_abroad)))
-            await callback.message.answer((i18n.get("Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit").format(remaining_days=abs(total_days["remaining_days_one_year"]), days_limit=total_days["daysperyearlimit"])))
-            await callback.message.answer((i18n.get("Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit").format(remaining_days=abs(total_days["remaining_days_two_years"]), days_limit=total_days["dayspertwoyearslimit"])))
+            await callback.message.answer((i18n.get("Total number of days abroad: {daysabroad}", daysabroad=days_abroad)))
+            await callback.message.answer((i18n.get("Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit", remaining_days=abs(total_days["remaining_days_one_year"]), days_limit=total_days["daysperyearlimit"])))
+            await callback.message.answer((i18n.get("Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit", remaining_days=abs(total_days["remaining_days_two_years"]), days_limit=total_days["dayspertwoyearslimit"])))
             await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
     else:
         await callback.message.answer(i18n.get("Sorry, I'm on maintenance. Please try again later"))
@@ -398,6 +399,8 @@ async def change_product_callback(callback: types.CallbackQuery, state: FSMConte
 #Handler for Trip - Delete (delete_)
 @user_handlers_router.callback_query(DeleteTrip.select_trip, F.data.startswith("delete_"))
 async def delete_product_callback(callback: types.CallbackQuery, state: FSMContext, session: AsyncSession, i18n: I18nContext) -> None:
+    await callback.message.delete_reply_markup()
+    
     trip_id = callback.data.split("_")[-1]
     try:
         await orm_delete_trip(session, int(trip_id))
