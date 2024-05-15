@@ -63,4 +63,4 @@ async def count_callback(callback: types.CallbackQuery,  state: FSMContext, sess
     except Exception as e:
         await callback.message.answer(i18n.get("Sorry, I'm on maintenance. Please try again later"))
         
-    await callback.message.answer(i18n.get("Number of unique users is {users_count}").format(users_count=len(users)))
+    await callback.message.answer(i18n.get("Number of unique users is {users_count}", users_count=len(users)))
