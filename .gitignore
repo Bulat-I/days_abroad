@@ -1,0 +1,6 @@
+.env
+/venv/*
+*.pyc
+my_database.db
+exported_trips.csv
+.vscode/launch.json

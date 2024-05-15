@@ -1,0 +1,219 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-05-15 08:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: handlers/admin_handlers.py:17
+msgid "Restart bot"
+msgstr ""
+
+#: handlers/admin_handlers.py:18
+msgid "Get number of users"
+msgstr ""
+
+#: handlers/admin_handlers.py:34 handlers/user_handlers.py:295
+msgid "Your actions were cancelled. Let's start it over"
+msgstr ""
+
+#: handlers/admin_handlers.py:47
+msgid "Hey, Admin"
+msgstr ""
+
+#: handlers/admin_handlers.py:54
+msgid "Restarting, please wait..."
+msgstr ""
+
+#: handlers/admin_handlers.py:64 handlers/user_handlers.py:91
+#: handlers/user_handlers.py:160 handlers/user_handlers.py:349
+#: handlers/user_handlers.py:365 handlers/user_handlers.py:522
+msgid "Sorry, I'm on maintenance. Please try again later"
+msgstr ""
+
+#: handlers/admin_handlers.py:66
+msgid "Number of unique users is {users_count}"
+msgstr ""
+
+#: handlers/user_handlers.py:24 handlers/user_handlers.py:31
+msgid "Add a trip"
+msgstr ""
+
+#: handlers/user_handlers.py:30
+msgid "Show me my days abroad"
+msgstr ""
+
+#: handlers/user_handlers.py:32
+msgid "Change a trip"
+msgstr ""
+
+#: handlers/user_handlers.py:33
+msgid "Remove a trip"
+msgstr ""
+
+#: handlers/user_handlers.py:34
+msgid "Export my trips"
+msgstr ""
+
+#: handlers/user_handlers.py:35
+msgid "My settings"
+msgstr ""
+
+#: handlers/user_handlers.py:65 handlers/user_handlers.py:70
+msgid "I am your days abroad counter bot"
+msgstr ""
+
+#: handlers/user_handlers.py:71
+msgid "Enter your annual days abroad limit. If you want to add a limit for two years, send 0"
+msgstr ""
+
+#: handlers/user_handlers.py:118
+msgid "Number of days abroad: 0. Did you forget to add trips?"
+msgstr ""
+
+#: handlers/user_handlers.py:119 handlers/user_handlers.py:122
+#: handlers/user_handlers.py:126 handlers/user_handlers.py:130
+#: handlers/user_handlers.py:134 handlers/user_handlers.py:138
+#: handlers/user_handlers.py:143 handlers/user_handlers.py:148
+#: handlers/user_handlers.py:153 handlers/user_handlers.py:158
+#: handlers/user_handlers.py:520
+msgid "Here is the menu"
+msgstr ""
+
+#: handlers/user_handlers.py:121
+msgid "Total number of days abroad: {daysabroad}. Did you forget to set limits in settings?"
+msgstr ""
+
+#: handlers/user_handlers.py:124 handlers/user_handlers.py:128
+#: handlers/user_handlers.py:132 handlers/user_handlers.py:136
+#: handlers/user_handlers.py:140 handlers/user_handlers.py:145
+#: handlers/user_handlers.py:150 handlers/user_handlers.py:155
+msgid "Total number of days abroad: {daysabroad}"
+msgstr ""
+
+#: handlers/user_handlers.py:125 handlers/user_handlers.py:141
+#: handlers/user_handlers.py:151
+msgid "The number of remaining days abroad during the year is {remaining_days} out of {days_limit}"
+msgstr ""
+
+#: handlers/user_handlers.py:129 handlers/user_handlers.py:146
+#: handlers/user_handlers.py:156
+msgid "Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit"
+msgstr ""
+
+#: handlers/user_handlers.py:133 handlers/user_handlers.py:142
+#: handlers/user_handlers.py:147
+msgid "The number of remaining days abroad during the last two years is {remaining_days} out of {days_limit}"
+msgstr ""
+
+#: handlers/user_handlers.py:137 handlers/user_handlers.py:152
+#: handlers/user_handlers.py:157
+msgid "Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit"
+msgstr ""
+
+#: handlers/user_handlers.py:168 handlers/user_handlers.py:169
+msgid "Add start date"
+msgstr ""
+
+#: handlers/user_handlers.py:188 handlers/user_handlers.py:208
+msgid "Select a trip"
+msgstr ""
+
+#: handlers/user_handlers.py:190
+msgid "There are no trips to edit"
+msgstr ""
+
+#: handlers/user_handlers.py:210
+msgid "There are no trips to remove"
+msgstr ""
+
+#: handlers/user_handlers.py:254 handlers/user_handlers.py:272
+#: handlers/user_handlers.py:384 handlers/user_handlers.py:405
+#: handlers/user_handlers.py:525
+msgid "Something went wrong. Please start over"
+msgstr ""
+
+#: handlers/user_handlers.py:259
+msgid "Here is the file with your trips"
+msgstr ""
+
+#: handlers/user_handlers.py:261
+msgid "Something went wrong. Please try again"
+msgstr ""
+
+#: handlers/user_handlers.py:281
+msgid "Add a new day limit for one year or send '.' to keep the old value"
+msgstr ""
+
+#: handlers/user_handlers.py:304 handlers/user_handlers.py:308
+msgid "Enter a limit on days abroad for two years"
+msgstr ""
+
+#: handlers/user_handlers.py:310
+msgid "Please enter valid number of days. If you want to only use a limit for two years, send 0"
+msgstr ""
+
+#: handlers/user_handlers.py:322
+msgid "Please enter valid number of days"
+msgstr ""
+
+#: handlers/user_handlers.py:326
+msgid "Select your default interface language"
+msgstr ""
+
+#: handlers/user_handlers.py:353
+msgid "Your settings have been updated"
+msgstr ""
+
+#: handlers/user_handlers.py:369
+msgid "Let's add a record of your first trip"
+msgstr ""
+
+#: handlers/user_handlers.py:393 handlers/user_handlers.py:394
+msgid "Add new start date"
+msgstr ""
+
+#: handlers/user_handlers.py:410 handlers/user_handlers.py:411
+msgid "The trip has been removed"
+msgstr ""
+
+#: handlers/user_handlers.py:424
+msgid "Add new end date"
+msgstr ""
+
+#: handlers/user_handlers.py:428 handlers/user_handlers.py:451
+msgid "Add end date"
+msgstr ""
+
+#: handlers/user_handlers.py:446 handlers/user_handlers.py:481
+msgid "The information you entered is not a valid date. Please use the following format: dd-mm-yy"
+msgstr ""
+
+#: handlers/user_handlers.py:464 handlers/user_handlers.py:484
+msgid "The date you entered is before the start date of your trip. Please enter a different date"
+msgstr ""
+
+#: handlers/user_handlers.py:468 handlers/user_handlers.py:489
+msgid "Add description"
+msgstr ""
+
+#: handlers/user_handlers.py:511
+msgid "Trip changed. Number of your days abroad: {days_abroad}"
+msgstr ""
+
+#: handlers/user_handlers.py:515
+msgid "Trip added. Number of your days abroad: {days_abroad}"
+msgstr ""
+
