@@ -1,5 +1,7 @@
+from typing import Optional
 from aiogram_calendar import SimpleCalendar, SimpleCalendarCallback
 from aiogram_i18n.types import InlineKeyboardButton, InlineKeyboardMarkup
+from aiogram_i18n import I18nContext, LazyProxy
 import calendar
 from datetime import datetime, timedelta
 
@@ -8,9 +10,34 @@ from aiogram_calendar import SimpleCalendar
 
 from aiogram_calendar.schemas import SimpleCalendarCallback, SimpleCalAct, highlight, superscript
 from aiogram_calendar.common import GenericCalendar
+from aiogram_calendar.schemas import CalendarLabels
+from pydantic import Field, conlist
 
-class MySimpleCalendar(SimpleCalendar):
-    
+class CustomCalendarLabels(CalendarLabels):
+    """Custom labels for the calendar"""
+    days_of_week: conlist(str, max_length=7, min_length=7) = [LazyProxy("Mo"), LazyProxy("Tu"), LazyProxy("We"), LazyProxy("Th"), LazyProxy("Fr"), LazyProxy("Sa"), LazyProxy("Su")]
+    months: conlist(str, max_length=12, min_length=12) = [
+        LazyProxy("Jan"), LazyProxy("Feb"), LazyProxy("Mar"), LazyProxy("Apr"), LazyProxy("May"), LazyProxy("Jun"), LazyProxy("Jul"), LazyProxy("Aug"), LazyProxy("Sep"), LazyProxy("Oct"), LazyProxy("Nov"), LazyProxy("Dec")
+    ]
+    cancel_caption: str = Field(default=LazyProxy('Cancel'), description='Caption for Cancel button')
+    today_caption: str = Field(default=LazyProxy('Today'), description='Caption for Today button')
+
+
+class MySimpleCalendar(GenericCalendar):
+    def __init__(
+        self,
+        locale: str = None,
+        cancel_btn: str = None,
+        today_btn: str = None,
+        show_alerts: bool = False,
+        labels: CustomCalendarLabels = CustomCalendarLabels(),
+        i18n: Optional[I18nContext] = None
+    ) -> None:  
+        if labels is None:
+            labels = CustomCalendarLabels()
+        super().__init__(locale, cancel_btn, today_btn, show_alerts)
+        self.i18n = i18n  
+        self.labels = labels if labels is not None else CustomCalendarLabels()
 
     ignore_callback = SimpleCalendarCallback(act=SimpleCalAct.ignore).pack()  # placeholder for no answer buttons
 
@@ -27,18 +54,18 @@ class MySimpleCalendar(SimpleCalendar):
         """
 
         today = datetime.now()
-        now_weekday = self._labels.days_of_week[today.weekday()]
+        now_weekday = self.labels.days_of_week[today.weekday()]
         now_month, now_year, now_day = today.month, today.year, today.day
 
         def highlight_month():
-            month_str = self._labels.months[month - 1]
+            month_str = self.labels.months[month - 1]
             if now_month == month and now_year == year:
-                return highlight(month_str)
+                return (month_str)
             return month_str
 
         def highlight_weekday():
             if now_month == month and now_year == year and now_weekday == weekday:
-                return highlight(weekday)
+                return weekday
             return weekday
 
         def format_day_string():
@@ -93,7 +120,7 @@ class MySimpleCalendar(SimpleCalendar):
 
         # Week Days
         week_days_labels_row = []
-        for weekday in self._labels.days_of_week:
+        for weekday in self.labels.days_of_week:
             week_days_labels_row.append(
                 InlineKeyboardButton(text=highlight_weekday(), callback_data=self.ignore_callback)
             )
@@ -109,24 +136,12 @@ class MySimpleCalendar(SimpleCalendar):
                     days_row.append(InlineKeyboardButton(text=" ", callback_data=self.ignore_callback))
                     continue
                 days_row.append(InlineKeyboardButton(
-                    text=highlight_day(),
+                    text= highlight_day(),
                     callback_data=SimpleCalendarCallback(act=SimpleCalAct.day, year=year, month=month, day=day).pack()
                 ))
             kb.append(days_row)
 
-        # nav today & cancel button
-        cancel_row = []
-        #cancel_row.append(InlineKeyboardButton(
-        #    text=self._labels.cancel_caption,
-        #    callback_data=SimpleCalendarCallback(act=SimpleCalAct.cancel, year=year, month=month, day=day).pack()
-        #))
-        cancel_row.append(InlineKeyboardButton(text=" ", callback_data=self.ignore_callback))
-        cancel_row.append(InlineKeyboardButton(
-            text=self._labels.today_caption,
-            callback_data=SimpleCalendarCallback(act=SimpleCalAct.today, year=year, month=month, day=day).pack()
-        ))
-        kb.append(cancel_row)
-        return InlineKeyboardMarkup(row_width=7, inline_keyboard=kb)
+        return InlineKeyboardMarkup(row_width=7, inline_keyboard=kb) 
 
     async def _update_calendar(self, query: CallbackQuery, with_date: datetime):
         await query.message.edit_reply_markup(
@@ -171,13 +186,5 @@ class MySimpleCalendar(SimpleCalendar):
         if data.act == SimpleCalAct.next_m:
             next_date = temp_date + timedelta(days=31)
             await self._update_calendar(query, next_date)
-        if data.act == SimpleCalAct.today:
-            next_date = datetime.now()
-            if next_date.year != int(data.year) or next_date.month != int(data.month):
-                await self._update_calendar(query, datetime.now())
-            else:
-                await query.answer(cache_time=60)
-        #if data.act == SimpleCalAct.cancel:
-        #    await query.message.delete_reply_markup()
-        # at some point user clicks DAY button, returning date
+
         return return_data

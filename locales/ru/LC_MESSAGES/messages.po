@@ -218,3 +218,72 @@ msgstr "Поездка изменена. Общее количество ваш�
 #: handlers/user_handlers.py:515
 msgid "Trip added. Number of your days abroad: {days_abroad}"
 msgstr "Поездка добавлена. Общее количество ваших дней за границей: {days_abroad}"
+
+msgid "Mo"
+msgstr "Пн"
+
+msgid "Tu"
+msgstr "Вт"
+
+msgid "We"
+msgstr "Ср"
+
+msgid "Th"
+msgstr "Чт"
+
+msgid "Fr"
+msgstr "Пт"
+
+msgid "Sa"
+msgstr "Сб"
+
+msgid "Su"
+msgstr "Вс"
+
+msgid "Jan"
+msgstr "Янв"
+
+msgid "Feb"
+msgstr "Фев"
+
+msgid "Mar"
+msgstr "Мар"
+
+msgid "Apr"
+msgstr "Апр"
+
+msgid "May"
+msgstr "Май"
+
+msgid "Jun"
+msgstr "Июн"
+
+msgid "Jul"
+msgstr "Июл"
+
+msgid "Aug"
+msgstr "Авг"
+
+msgid "Sep"
+msgstr "Сен"
+
+msgid "Oct"
+msgstr "Окт"
+
+msgid "Nov"
+msgstr "Ноя"
+
+msgid "Dec"
+msgstr "Дек"
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "Start date selected: {selected_startdate}"
+msgstr "Выбрана дата начала поездки: {selected_startdate}"
+
+msgid "End date selected: {selected_enddate}"
+msgstr "Выбрана дата завершения поездки: {selected_enddate}"
+
+msgid "Description selected: {selected_description}"
+msgstr "Выбрано описание: {selected_description}"

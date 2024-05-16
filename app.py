@@ -1,5 +1,6 @@
-import asyncio
 import os
+import asyncio
+import logging
 from pathlib import Path
 from aiogram import Bot, Dispatcher, types
 from aiogram_i18n import I18nMiddleware
@@ -62,4 +63,10 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename='/var/lib/telegram-bot/app.log',  
+        filemode='w',        
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  
+        level=logging.WARNING  
+    )
     asyncio.run(main())

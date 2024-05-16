@@ -20,69 +20,69 @@ msgstr ""
 
 #: handlers/admin_handlers.py:17
 msgid "Restart bot"
-msgstr ""
+msgstr "Restart bot"
 
 #: handlers/admin_handlers.py:18
 msgid "Get number of users"
-msgstr ""
+msgstr "Get number of users"
 
 #: handlers/admin_handlers.py:34 handlers/user_handlers.py:295
 msgid "Your actions were cancelled. Let's start it over"
-msgstr ""
+msgstr "Your actions were cancelled. Let's start it over"
 
 #: handlers/admin_handlers.py:47
 msgid "Hey, Admin"
-msgstr ""
+msgstr "Hey, Admin"
 
 #: handlers/admin_handlers.py:54
 msgid "Restarting, please wait..."
-msgstr ""
+msgstr "Restarting, please wait..."
 
 #: handlers/admin_handlers.py:64 handlers/user_handlers.py:91
 #: handlers/user_handlers.py:160 handlers/user_handlers.py:349
 #: handlers/user_handlers.py:365 handlers/user_handlers.py:522
 msgid "Sorry, I'm on maintenance. Please try again later"
-msgstr ""
+msgstr "Sorry, I'm on maintenance. Please try again later"
 
 #: handlers/admin_handlers.py:66
 msgid "Number of unique users is {users_count}"
-msgstr ""
+msgstr "Number of unique users is {users_count}"
 
 #: handlers/user_handlers.py:24 handlers/user_handlers.py:31
 msgid "Add a trip"
-msgstr ""
+msgstr "Add a trip"
 
 #: handlers/user_handlers.py:30
 msgid "Show me my days abroad"
-msgstr ""
+msgstr "Show me my days abroad"
 
 #: handlers/user_handlers.py:32
 msgid "Change a trip"
-msgstr ""
+msgstr "Change a trip"
 
 #: handlers/user_handlers.py:33
 msgid "Remove a trip"
-msgstr ""
+msgstr "Remove a trip"
 
 #: handlers/user_handlers.py:34
 msgid "Export my trips"
-msgstr ""
+msgstr "Export my trips"
 
 #: handlers/user_handlers.py:35
 msgid "My settings"
-msgstr ""
+msgstr "My settings"
 
 #: handlers/user_handlers.py:65 handlers/user_handlers.py:70
 msgid "I am your days abroad counter bot"
-msgstr ""
+msgstr "I am your days abroad counter bot"
 
 #: handlers/user_handlers.py:71
 msgid "Enter your annual days abroad limit. If you want to add a limit for two years, send 0"
-msgstr ""
+msgstr "Enter your annual days abroad limit. If you want to add a limit for two years, send 0"
 
 #: handlers/user_handlers.py:118
 msgid "Number of days abroad: 0. Did you forget to add trips?"
-msgstr ""
+msgstr "Number of days abroad: 0. Did you forget to add trips?"
 
 #: handlers/user_handlers.py:119 handlers/user_handlers.py:122
 #: handlers/user_handlers.py:126 handlers/user_handlers.py:130
@@ -91,28 +91,28 @@ msgstr ""
 #: handlers/user_handlers.py:153 handlers/user_handlers.py:158
 #: handlers/user_handlers.py:520
 msgid "Here is the menu"
-msgstr ""
+msgstr "Here is the menu"
 
 #: handlers/user_handlers.py:121
 msgid "Total number of days abroad: {daysabroad}. Did you forget to set limits in settings?"
-msgstr ""
+msgstr "Total number of days abroad: {daysabroad}. Did you forget to set limits in settings?"
 
 #: handlers/user_handlers.py:124 handlers/user_handlers.py:128
 #: handlers/user_handlers.py:132 handlers/user_handlers.py:136
 #: handlers/user_handlers.py:140 handlers/user_handlers.py:145
 #: handlers/user_handlers.py:150 handlers/user_handlers.py:155
 msgid "Total number of days abroad: {daysabroad}"
-msgstr ""
+msgstr "Total number of days abroad: {daysabroad}"
 
 #: handlers/user_handlers.py:125 handlers/user_handlers.py:141
 #: handlers/user_handlers.py:151
 msgid "The number of remaining days abroad during the year is {remaining_days} out of {days_limit}"
-msgstr ""
+msgstr "The number of remaining days abroad during the year is {remaining_days} out of {days_limit}"
 
 #: handlers/user_handlers.py:129 handlers/user_handlers.py:146
 #: handlers/user_handlers.py:156
 msgid "Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit"
-msgstr ""
+msgstr "Over the past year, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit"
 
 #: handlers/user_handlers.py:133 handlers/user_handlers.py:142
 #: handlers/user_handlers.py:147
@@ -122,99 +122,167 @@ msgstr ""
 #: handlers/user_handlers.py:137 handlers/user_handlers.py:152
 #: handlers/user_handlers.py:157
 msgid "Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit"
-msgstr ""
+msgstr "Over the past two years, you have exceeded your days abroad limit by {remaining_days} of your {days_limit}  limit"
 
 #: handlers/user_handlers.py:168 handlers/user_handlers.py:169
 msgid "Add start date"
-msgstr ""
+msgstr "Add start date"
 
 #: handlers/user_handlers.py:188 handlers/user_handlers.py:208
 msgid "Select a trip"
-msgstr ""
+msgstr "Select a trip"
 
 #: handlers/user_handlers.py:190
 msgid "There are no trips to edit"
-msgstr ""
+msgstr "There are no trips to edit"
 
 #: handlers/user_handlers.py:210
 msgid "There are no trips to remove"
-msgstr ""
+msgstr "There are no trips to remove"
 
 #: handlers/user_handlers.py:254 handlers/user_handlers.py:272
 #: handlers/user_handlers.py:384 handlers/user_handlers.py:405
 #: handlers/user_handlers.py:525
 msgid "Something went wrong. Please start over"
-msgstr ""
+msgstr "Something went wrong. Please start over"
 
 #: handlers/user_handlers.py:259
 msgid "Here is the file with your trips"
-msgstr ""
+msgstr "Here is the file with your trips"
 
 #: handlers/user_handlers.py:261
 msgid "Something went wrong. Please try again"
-msgstr ""
+msgstr "Something went wrong. Please try again"
 
 #: handlers/user_handlers.py:281
 msgid "Add a new day limit for one year or send '.' to keep the old value"
-msgstr ""
+msgstr "Add a new day limit for one year or send '.' to keep the old value"
 
 #: handlers/user_handlers.py:304 handlers/user_handlers.py:308
 msgid "Enter a limit on days abroad for two years"
-msgstr ""
+msgstr "Enter a limit on days abroad for two years"
 
 #: handlers/user_handlers.py:310
 msgid "Please enter valid number of days. If you want to only use a limit for two years, send 0"
-msgstr ""
+msgstr "Please enter valid number of days. If you want to only use a limit for two years, send 0"
 
 #: handlers/user_handlers.py:322
 msgid "Please enter valid number of days"
-msgstr ""
+msgstr "Please enter valid number of days"
 
 #: handlers/user_handlers.py:326
 msgid "Select your default interface language"
-msgstr ""
+msgstr "Select your default interface language"
 
 #: handlers/user_handlers.py:353
 msgid "Your settings have been updated"
-msgstr ""
+msgstr "Your settings have been updated"
 
 #: handlers/user_handlers.py:369
 msgid "Let's add a record of your first trip"
-msgstr ""
+msgstr "Let's add a record of your first trip"
 
 #: handlers/user_handlers.py:393 handlers/user_handlers.py:394
 msgid "Add new start date"
-msgstr ""
+msgstr "Add new start date"
 
 #: handlers/user_handlers.py:410 handlers/user_handlers.py:411
 msgid "The trip has been removed"
-msgstr ""
+msgstr "The trip has been removed"
 
 #: handlers/user_handlers.py:424
 msgid "Add new end date"
-msgstr ""
+msgstr "Add new end date"
 
 #: handlers/user_handlers.py:428 handlers/user_handlers.py:451
 msgid "Add end date"
-msgstr ""
+msgstr "Add end date"
 
 #: handlers/user_handlers.py:446 handlers/user_handlers.py:481
 msgid "The information you entered is not a valid date. Please use the following format: dd-mm-yy"
-msgstr ""
+msgstr "The information you entered is not a valid date. Please use the following format: dd-mm-yy"
 
 #: handlers/user_handlers.py:464 handlers/user_handlers.py:484
 msgid "The date you entered is before the start date of your trip. Please enter a different date"
-msgstr ""
+msgstr "The date you entered is before the start date of your trip. Please enter a different date"
 
 #: handlers/user_handlers.py:468 handlers/user_handlers.py:489
 msgid "Add description"
-msgstr ""
+msgstr "Add description"
 
 #: handlers/user_handlers.py:511
 msgid "Trip changed. Number of your days abroad: {days_abroad}"
-msgstr ""
+msgstr "Trip changed. Number of your days abroad: {days_abroad}"
 
 #: handlers/user_handlers.py:515
 msgid "Trip added. Number of your days abroad: {days_abroad}"
-msgstr ""
+msgstr "Trip added. Number of your days abroad: {days_abroad}"
 
+msgid "Mo"
+msgstr "Mo"
+
+msgid "Tu"
+msgstr "Tu"
+
+msgid "We"
+msgstr "We"
+
+msgid "Th"
+msgstr "Th"
+
+msgid "Fr"
+msgstr "Fr"
+
+msgid "Sa"
+msgstr "Sa"
+
+msgid "Su"
+msgstr "Su"
+
+msgid "Jan"
+msgstr "Jan"
+
+msgid "Feb"
+msgstr "Feb"
+
+msgid "Mar"
+msgstr "Mar"
+
+msgid "Apr"
+msgstr "Apr"
+
+msgid "May"
+msgstr "May"
+
+msgid "Jun"
+msgstr "Jun"
+
+msgid "Jul"
+msgstr "Jul"
+
+msgid "Aug"
+msgstr "Aug"
+
+msgid "Sep"
+msgstr "Sep"
+
+msgid "Oct"
+msgstr "Oct"
+
+msgid "Nov"
+msgstr "Nov"
+
+msgid "Dec"
+msgstr "Dec"
+
+msgid "Today"
+msgstr "Today"
+
+msgid "Start date selected: {selected_startdate}"
+msgstr "Start date selected: {selected_startdate}"
+
+msgid "End date selected: {selected_enddate}"
+msgstr "End date selected: {selected_enddate}"
+
+msgid "Description selected: {selected_description}"
+msgstr "Description selected: {selected_description}"
