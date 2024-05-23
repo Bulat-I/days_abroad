@@ -47,6 +47,7 @@ WARNING_SIGN = "⚠️ "
 ALL_GOOD_SIGN = "✅ "
 QUESTION_MARK  = "❔"
 EXCLAMATION_MARK = "‼️"
+ENTER_DATA = "✏️"
 
 user_handlers_router = Router()
 user_handlers_router.message.filter(ChatTypeFilter(["private"]))
@@ -71,11 +72,10 @@ async def start_cmd(message: types.Message, state: FSMContext, session: AsyncSes
         await state.update_data(previous_message_id=msg.message_id)
     else:
         await message.bot.delete_my_commands(scope=types.BotCommandScopeChat(chat_id=message.chat.id))
-        msg = await message.bot.set_my_commands(commands=INITIAL_MENU_ITEMS, scope=types.BotCommandScopeChat(chat_id=message.chat.id))
-        await state.update_data(previous_message_id=msg.message_id)
+        await message.bot.set_my_commands(commands=INITIAL_MENU_ITEMS, scope=types.BotCommandScopeChat(chat_id=message.chat.id))
         await state.set_state(AddChangeUserConfig.add_one_year_limit)
         await message.answer(i18n.get("I am your days abroad counter bot"))
-        await message.answer(i18n.get("Enter your annual days abroad limit. If you want to add a limit for two years, send 0"))
+        await message.answer(ENTER_DATA + i18n.get("Enter your annual days abroad limit. If you want to add a limit for two years, send 0"))
 
 
 async def switch_language(message: types.Message, state: FSMContext, i18n: I18nContext, session: AsyncSession, locale_code: str, update_db: bool) -> None:
@@ -132,6 +132,7 @@ async def switch_to_en(message: types.Message, state: FSMContext, session: Async
 async def switch_to_en(message: types.Message, state: FSMContext, session: AsyncSession, i18n: I18nContext) -> None:
     await switch_language(message, state, i18n, session, "ru", True)
 
+
 #Handler for Count days
 @user_handlers_router.callback_query(StateFilter(None), F.data.startswith("count"))
 async def count_days_callback(callback: types.CallbackQuery, state: FSMContext, session: AsyncSession, i18n: I18nContext) -> None:
@@ -142,7 +143,7 @@ async def count_days_callback(callback: types.CallbackQuery, state: FSMContext, 
     
     #This is totally weird
     if days_abroad != -1 and not total_days["error"]:
-        if total_days == 0:
+        if total_days == 0 or days_abroad == 0:
             await callback.message.answer(QUESTION_MARK + (i18n.get("Number of days abroad: 0. Did you forget to add trips?")))
             msg = await callback.message.answer((i18n.get("Here is the menu")), reply_markup=MENU_KEYBOARD)
         elif (total_days["daysperyearlimit"] == 0) and (total_days["dayspertwoyearslimit"] == 0):
@@ -349,11 +350,11 @@ async def add_user_config_one_year_limit(message: types.Message, state: FSMConte
     if message.text == "." and AddChangeUserConfig.user_to_change:
         await state.update_data(daysperyearlimit=AddChangeUserConfig.user_to_change.daysperyearlimit)
         await state.set_state(AddChangeUserConfig.add_two_year_limit)
-        await message.answer(i18n.get("Enter a limit on days abroad for two years"))
+        await message.answer(ENTER_DATA + i18n.get("Enter a limit on days abroad for two years"))
     elif message.text.isdigit() and int(message.text) < 365:
         await state.set_state(AddChangeUserConfig.add_two_year_limit)
         await state.update_data(daysperyearlimit=int(message.text))
-        await message.answer(i18n.get("Enter a limit on days abroad for two years"))
+        await message.answer(ENTER_DATA + i18n.get("Enter a limit on days abroad for two years"))
     else:
         await message.answer(WARNING_SIGN + (i18n.get("Please enter valid number of days. If you want to only use a limit for two years, send 0")))
         return

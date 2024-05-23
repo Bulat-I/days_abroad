@@ -5,3 +5,4 @@ my_database.db
 exported_trips.csv
 .vscode/launch.json
 .vscode/settings.json
+nginx/default.conf

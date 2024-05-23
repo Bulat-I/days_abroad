@@ -1,8 +1,7 @@
 from aiogram.types import BotCommand
 
 INITIAL_MENU_ITEMS = [
-    BotCommand(command="start", description="Start/Старт"),
-    BotCommand(command="cancel", description="Cancel/Отмена"),
+    BotCommand(command="start", description="Start/Старт")
 ]
 
 MENU_ITEMS = [
